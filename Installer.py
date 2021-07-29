@@ -2,7 +2,7 @@ import os
 import shutil
 import time
 import colorama
-from colorama import Fore, Back, Style
+from colorama import Fore
 
 colorama.init(autoreset=True)
 
@@ -90,5 +90,3 @@ if __name__ == "__main__":
         time.sleep(20)
     else:
         print(f'{Fore.RED}Installation cancelled!')
-
-# Remember to create requirements.txt

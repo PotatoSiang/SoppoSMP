@@ -6,9 +6,10 @@ from colorama import Fore, Back, Style
 
 colorama.init(autoreset=True)
 
+username = os.getlogin() # The system's username
+minecraft_folder = f'C:/Users/{username}/AppData/Roaming/.minecraft'
+
 def installmods():
-    username = os.getlogin() # The system's username
-    minecraft_folder = f'C:/Users/{username}/AppData/Roaming/.minecraft'
     mods_folder = minecraft_folder + '/mods'
 
     # Detects if the mods folder even exists, if it doesn't, it creates it
@@ -41,8 +42,6 @@ def installmods():
         shutil.copy('./mods/' + mod, mods_folder)
 
 def installfabric():
-    username = os.getlogin() # The system's username
-    minecraft_folder = f'C:/Users/{username}/AppData/Roaming/.minecraft'
     fabric_folder = minecraft_folder + '/versions/fabric-loader-0.11.6-1.17.1'
 
     # Detects if the mods folder even exists, if it doesn't, it creates it

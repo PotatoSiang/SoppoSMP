@@ -7,6 +7,14 @@ def installmods():
     minecraft_folder = f'C:/Users/{username}/AppData/Roaming/.minecraft'
     mods_folder = minecraft_folder + '/mods'
 
+    # Detects if the mods folder even exists, if it doesn't, it creates it
+    if not os.path.exists(mods_folder):
+        print('Mods folder doesn\'t exist')
+        print('Creating mods folder...')
+        os.mkdir(mods_folder)
+        
+        time.sleep(1)
+
     # Deletes the mods folder and creates a new one if there's already existing mods in it
     if os.listdir(mods_folder):
         print('Detected mods in mods folder')
@@ -18,8 +26,10 @@ def installmods():
 
         print('Creating a new mods folder...')
         os.mkdir(mods_folder)
+
+        time.sleep(1)
     else:
-        print('Detected no mods in mods folder')
+        print('Detected no fabric folder in versions folder')
     
     # Copies the mods minecraft mods folder
     for mod in os.listdir('./mods'):
@@ -30,6 +40,14 @@ def installfabric():
     username = os.getlogin() # The system's username
     minecraft_folder = f'C:/Users/{username}/AppData/Roaming/.minecraft'
     fabric_folder = minecraft_folder + '/versions/fabric-loader-0.11.6-1.17.1'
+
+    # Detects if the mods folder even exists, if it doesn't, it creates it
+    if not os.path.exists(fabric_folder):
+        print('Mods folder doesn\'t exist')
+        print('Creating mods folder...')
+        os.mkdir(fabric_folder)
+        
+        time.sleep(1)
 
     # Deletes the fabric folder and creates a new one if there's already existing fabric is already installed
     if os.listdir(fabric_folder):
@@ -48,7 +66,7 @@ def installfabric():
     # Copies the mods minecraft fabric folder
     for mod in os.listdir('./fabric-loader-0.11.6-1.17.1'):
         print('Copying {}...'.format(mod))
-        shutil.copy('.fabric-loader-0.11.6-1.17.1/' + mod, fabric_folder)
+        shutil.copy('./fabric-loader-0.11.6-1.17.1/' + mod, fabric_folder)
 
 if __name__ == "__main__":
     response = input('Start installation? (yes/no): ').lower()
